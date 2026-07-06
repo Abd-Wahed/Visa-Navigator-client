@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
     return (
         <div>
-            {/* চাইল্ড পেজগুলো রেন্ডার করার জন্য ওউটলেট অবশ্যই লাগবে */}
-            <Outlet /> 
+            <Navbar />
+            <div className="min-h-[calc(100vh-280px)] container mx-auto px-4">
+                <Outlet />
+            </div>
+            <Footer />
         </div>
     );
 };
 
-export default MainLayout; // এই লাইনটি ঠিকমত আছে কি?
+export default MainLayout;
