@@ -4,6 +4,9 @@ import Home from "../pages/Home";
 import AllVisas from "../pages/AllVisas";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import AddVisa from "../pages/AddVisa";
+import VisaDetails from "../pages/VisaDetails";
 
 const router = createBrowserRouter([
     {
@@ -16,15 +19,23 @@ const router = createBrowserRouter([
             },
             {
                 path: "visas", // এখানে শুরুতে আলাদা করে '/' দেওয়ার দরকার নেই
-                element: <AllVisas />,
+                element: <PrivateRoutes><AllVisas /></PrivateRoutes>,
             },
             {
-                path: "login",
+                path:"add-visa",
+                element:<PrivateRoutes><AddVisa></AddVisa></PrivateRoutes>
+            },
+            {
+                path: "/login",
                 element: <Login/>,
             },
             {
-                path:"register",
+                path:"/register",
                 element:<Register></Register>,
+            },
+            {
+                path:"visas/:id",
+                element:<PrivateRoutes><VisaDetails></VisaDetails></PrivateRoutes>
             }
         ],
     },
